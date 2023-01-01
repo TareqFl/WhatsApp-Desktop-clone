@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/WhatsApp-Desktop-clone/static/css/main.0fe685b7.css",
+    "main.js": "/WhatsApp-Desktop-clone/static/js/main.2ada9df8.js",
+    "index.html": "/WhatsApp-Desktop-clone/index.html",
+    "main.0fe685b7.css.map": "/WhatsApp-Desktop-clone/static/css/main.0fe685b7.css.map",
+    "main.2ada9df8.js.map": "/WhatsApp-Desktop-clone/static/js/main.2ada9df8.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0fe685b7.css",
+    "static/js/main.2ada9df8.js"
+  ]
+}
