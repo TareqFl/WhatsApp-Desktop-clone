@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/WhatsApp-Desktop-clone/static/css/main.0fe685b7.css",
-    "main.js": "/WhatsApp-Desktop-clone/static/js/main.331f0f63.js",
+    "main.js": "/WhatsApp-Desktop-clone/static/js/main.4b80d399.js",
     "index.html": "/WhatsApp-Desktop-clone/index.html",
     "main.0fe685b7.css.map": "/WhatsApp-Desktop-clone/static/css/main.0fe685b7.css.map",
-    "main.331f0f63.js.map": "/WhatsApp-Desktop-clone/static/js/main.331f0f63.js.map"
+    "main.4b80d399.js.map": "/WhatsApp-Desktop-clone/static/js/main.4b80d399.js.map"
   },
   "entrypoints": [
     "static/css/main.0fe685b7.css",
-    "static/js/main.331f0f63.js"
+    "static/js/main.4b80d399.js"
   ]
 }
