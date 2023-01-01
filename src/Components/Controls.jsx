@@ -7,6 +7,7 @@ import {
   Key,
   KeyboardAltOutlined,
   Notifications,
+  PersonOutline,
   PhoneOutlined,
   SettingsOutlined,
   Storage,
@@ -14,6 +15,7 @@ import {
 } from "@mui/icons-material";
 import { Avatar, Box, IconButton, Paper, Stack } from "@mui/material";
 import MyButton from "./MyButton";
+import ClickedSettings from "./ClickedSettings";
 const Controls = () => {
   const [mySettings, setMySettings] = React.useState(false);
   const [myAvatar, setMyAvatar] = React.useState(false);
@@ -126,6 +128,24 @@ const Controls = () => {
                 }
                 text={"Help"}
               />
+              <Box
+                sx={{
+                  height: "100%",
+                  display: "flex",
+                  justifyContent: "end",
+                  alignItems: "end",
+                }}
+              >
+                <MyButton
+                  color="#292929"
+                  icon={
+                    <PersonOutline
+                      sx={{ ml: 0.5, color: "white", fontSize: "1.1rem" }}
+                    />
+                  }
+                  text={"Profile"}
+                />
+              </Box>
             </Stack>
 
             {content2}
@@ -294,9 +314,7 @@ const Controls = () => {
           display="none"
           menu={!mySettings && "none"}
           onClick={() => handleSettings()}
-          content2={
-            <Box sx={{ flexGrow: 1, backgroundColor: "#303030" }}></Box>
-          }
+          content2={<ClickedSettings />}
         />
 
         <RepeatedButton
@@ -314,12 +332,7 @@ const Controls = () => {
           settings={false}
           avatar={true}
           display="none"
-          content1={
-            <Box sx={{ width: "150px", backgroundColor: "#292929" }}></Box>
-          }
-          content2={
-            <Box sx={{ flexGrow: 1, backgroundColor: "#303030" }}></Box>
-          }
+          content2={<ClickedSettings />}
           onClick={() => handleAvatar()}
         />
       </Stack>

@@ -6,6 +6,7 @@ const MyButton = ({ icon, text, color }) => {
     <Paper
       elevation={0.5}
       sx={{
+        width: "100%",
         backgroundColor: color,
         position: "relative",
         p: 0.2,
