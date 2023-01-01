@@ -61,15 +61,15 @@ const ClickedSettings = () => {
     <Stack
       display="flex"
       direction="column"
-      spacing={3}
+      spacing={2}
       sx={{ flexGrow: 1, backgroundColor: "#303030", pt: 3, pl: 2, pr: 2 }}
     >
-      <Typography color="white" variant="h5">
+      <Typography color="white" sx={{ fontSize: "1.2rem" }}>
         General
       </Typography>
 
       <Stack display="flex" direction="column" spacing={1}>
-        <Typography color="white" variant="h6">
+        <Typography color="white" sx={{ fontSize: "1.1rem" }}>
           Login
         </Typography>
         <Stack
@@ -85,15 +85,17 @@ const ClickedSettings = () => {
             </Typography>
           </Box>
           <AntSwitch />
-          <Typography color="white">Off</Typography>
+          <Typography color="white" sx={{ fontSize: "0.9rem" }}>
+            Off
+          </Typography>
         </Stack>
       </Stack>
 
       <Stack display="flex" direction="column" spacing={0.5}>
-        <Typography color="white" variant="h6">
+        <Typography color="white" sx={{ fontSize: "1.1rem" }}>
           Theme
         </Typography>
-        <Typography sx={{ color: "#808080", fontSize: "0.9rem" }}>
+        <Typography sx={{ color: "#808080", fontSize: "0.8rem" }}>
           App color theme
         </Typography>
 
@@ -127,10 +129,10 @@ const ClickedSettings = () => {
       </Stack>
 
       <Stack display="flex" direction="column" spacing={1}>
-        <Typography color="white" variant="h6">
+        <Typography color="white" sx={{ fontSize: "1rem" }}>
           Typing
         </Typography>
-        <Typography sx={{ color: "darkgray", fontSize: "0.9rem" }}>
+        <Typography sx={{ color: "darkgray", fontSize: "0.83rem" }}>
           Change typing settings for{" "}
           <span style={{ fontWeight: "bold", color: "#b0b0b0" }}>
             autocorrect
@@ -163,12 +165,12 @@ const ClickedSettings = () => {
           <Typography
             textAlign="center"
             color="white"
-            sx={{ fontSize: "0.9rem" }}
+            sx={{ fontSize: "0.8rem" }}
           >
             Log out
           </Typography>
         </Paper>
-        <Typography sx={{ color: "#808080", fontSize: "0.9rem" }}>
+        <Typography sx={{ color: "#999999", fontSize: "0.88rem" }}>
           Your chat history will be cleared when you log out
         </Typography>
       </Stack>

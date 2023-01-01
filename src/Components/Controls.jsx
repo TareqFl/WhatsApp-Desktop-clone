@@ -44,6 +44,7 @@ const Controls = () => {
     return (
       <Box sx={{ position: "relative" }} onClick={onClick}>
         <Paper
+          elevation={4}
           sx={{
             display: menu,
             borderRadius: "8px",
