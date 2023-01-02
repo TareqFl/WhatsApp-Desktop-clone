@@ -1,24 +1,13 @@
 import React from "react";
 import {
-  Chat,
   ChatOutlined,
-  Computer,
-  ErrorOutline,
-  Key,
-  KeyboardAltOutlined,
-  Notifications,
-  PersonOutline,
   PhoneOutlined,
   SettingsOutlined,
-  Storage,
   TrackChangesOutlined,
 } from "@mui/icons-material";
-import { Avatar, Box, IconButton, Paper, Stack } from "@mui/material";
-import MyButton from "./MyButton";
-import ClickedSettings from "./ClickedSettings";
+import { Avatar, Box, IconButton, Stack } from "@mui/material";
+import MyMenu from "./MyMenu";
 const Controls = () => {
-  const [mySettings, setMySettings] = React.useState(false);
-  const [myAvatar, setMyAvatar] = React.useState(false);
   const [bgc, setBgc] = React.useState({
     chats: false,
     calls: false,
@@ -26,6 +15,9 @@ const Controls = () => {
     settings: false,
     avatar: false,
   });
+
+  const [showMenu, setShowMenu] = React.useState(false);
+  const [page, setPage] = React.useState(false);
   const RepeatedButton = ({
     icon,
     name,
@@ -35,123 +27,11 @@ const Controls = () => {
     settings,
     avatar,
     display,
-    menu,
-    content1,
-    content2,
     onClick,
   }) => {
     const [show, setShow] = React.useState(false);
     return (
       <Box sx={{ position: "relative" }} onClick={onClick}>
-        <Paper
-          elevation={4}
-          sx={{
-            display: menu,
-            borderRadius: "8px",
-            position: "absolute",
-            top: -510,
-            left: 40,
-            height: "548px",
-            width: "488px",
-            backgroundColor: "#202020",
-            zIndex: 4,
-            overflow: "hidden",
-          }}
-        >
-          <Stack
-            display="flex"
-            direction="row"
-            id="menu"
-            sx={{ height: "100%" }}
-          >
-            <Stack
-              display="flex"
-              direction="column"
-              spacing={1}
-              sx={{ width: "160px", backgroundColor: "#292929", p: 1 }}
-            >
-              <MyButton
-                color="#292929"
-                icon={
-                  <Computer
-                    sx={{ ml: 0.5, color: "white", fontSize: "1.1rem" }}
-                  />
-                }
-                text={"General"}
-              />
-              <MyButton
-                color="#292929"
-                icon={
-                  <Key sx={{ ml: 0.5, color: "white", fontSize: "1.1rem" }} />
-                }
-                text={"Account"}
-              />
-              <MyButton
-                color="#292929"
-                icon={
-                  <Chat sx={{ ml: 0.5, color: "white", fontSize: "1.1rem" }} />
-                }
-                text={"Chats"}
-              />
-              <MyButton
-                color="#292929"
-                icon={
-                  <Notifications
-                    sx={{ ml: 0.5, color: "white", fontSize: "1.1rem" }}
-                  />
-                }
-                text={"Notifications"}
-              />
-              <MyButton
-                color="#292929"
-                icon={
-                  <Storage
-                    sx={{ ml: 0.5, color: "white", fontSize: "1.1rem" }}
-                  />
-                }
-                text={"Storage"}
-              />
-              <MyButton
-                color="#292929"
-                icon={
-                  <KeyboardAltOutlined
-                    sx={{ ml: 0.5, color: "white", fontSize: "1.1rem" }}
-                  />
-                }
-                text={"Shortcuts"}
-              />
-              <MyButton
-                color="#292929"
-                icon={
-                  <ErrorOutline
-                    sx={{ ml: 0.5, color: "white", fontSize: "1.1rem" }}
-                  />
-                }
-                text={"Help"}
-              />
-              <Box
-                sx={{
-                  height: "100%",
-                  display: "flex",
-                  justifyContent: "end",
-                  alignItems: "end",
-                }}
-              >
-                <MyButton
-                  color="#292929"
-                  icon={
-                    <PersonOutline
-                      sx={{ ml: 0.5, color: "white", fontSize: "1.1rem" }}
-                    />
-                  }
-                  text={"Profile"}
-                />
-              </Box>
-            </Stack>
-
-            {content2}
-          </Stack>
-        </Paper>
         <IconButton
           sx={{
             position: "relative",
@@ -205,14 +85,9 @@ const Controls = () => {
       </Box>
     );
   };
-
-  const handleSettings = () => {
-    setMyAvatar(false);
-    setMySettings(!mySettings);
-  };
-  const handleAvatar = () => {
-    setMySettings(false);
-    setMyAvatar(!myAvatar);
+  const handleMenu = (page) => {
+    setShowMenu(!showMenu);
+    setPage(page);
   };
   return (
     <Stack
@@ -228,6 +103,7 @@ const Controls = () => {
         position: "relative",
       }}
     >
+      <MyMenu menu={showMenu} page={page} />
       <RepeatedButton
         name={bgc.chats}
         menu="none"
@@ -313,9 +189,7 @@ const Controls = () => {
           settings={true}
           avatar={false}
           display="none"
-          menu={!mySettings && "none"}
-          onClick={() => handleSettings()}
-          content2={<ClickedSettings />}
+          onClick={() => handleMenu(false)}
         />
 
         <RepeatedButton
@@ -326,15 +200,13 @@ const Controls = () => {
             />
           }
           name={bgc.avatar}
-          menu={!myAvatar && "none"}
           chats={false}
           calls={false}
           status={false}
           settings={false}
           avatar={true}
           display="none"
-          content2={<ClickedSettings />}
-          onClick={() => handleAvatar()}
+          onClick={() => handleMenu(true)}
         />
       </Stack>
     </Stack>

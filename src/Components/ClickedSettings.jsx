@@ -1,62 +1,45 @@
 import { KeyboardArrowDown, PaletteOutlined } from "@mui/icons-material";
-import {
-  Box,
-  Stack,
-  Switch,
-  Typography,
-  styled,
-  Paper,
-  Divider,
-} from "@mui/material";
+import { Box, Stack, Typography, Paper, Divider } from "@mui/material";
 import React from "react";
 
 const ClickedSettings = () => {
-  const AntSwitch = styled(Switch)(({ theme }) => ({
-    width: 45,
-    height: 21,
-    padding: 0,
-    border: "2px solid #C0c0c0",
-    borderRadius: "24px",
-    display: "flex",
-    "&:active": {
-      "& .MuiSwitch-thumb": {
-        width: 15,
-      },
-      "& .MuiSwitch-switchBase.Mui-checked": {
-        transform: "translateX(9px)",
-      },
-    },
-    "& .MuiSwitch-switchBase": {
-      padding: 2,
-      "&.Mui-checked": {
-        transform: "translateX(12px)",
-        color: "#fff",
-        "& + .MuiSwitch-track": {
-          opacity: 1,
-          backgroundColor:
-            theme.palette.mode === "dark" ? "#177ddc" : "#1890ff",
-        },
-      },
-    },
-    "& .MuiSwitch-thumb": {
-      boxShadow: "0 2px 4px 0 rgb(0 35 11 / 20%)",
-      width: 10,
-      height: 10,
-      borderRadius: 6,
-      transition: theme.transitions.create(["width"], {
-        duration: 200,
-      }),
-    },
-    "& .MuiSwitch-track": {
-      borderRadius: 16 / 2,
-      opacity: 1,
-      backgroundColor:
-        theme.palette.mode === "dark"
-          ? "rgba(255,255,255,.35)"
-          : "rgba(0,0,0,.25)",
-      boxSizing: "border-box",
-    },
-  }));
+  const [mySwitch, setSwitch] = React.useState(false);
+
+  const MySwitch = () => {
+    return (
+      <Paper
+        elevation={0}
+        sx={{
+          width: 43,
+          height: 19,
+          borderRadius: 18,
+          backgroundColor: mySwitch ? "#00A884" : "#303030",
+          position: "relative",
+          display: "flex",
+          alignItems: "center",
+          border: !mySwitch && "2px solid #898989",
+          "&:hover": {
+            cursor: "pointer",
+            backgroundColor: mySwitch ? "#029174" : "#393939",
+          },
+        }}
+        onClick={() => setSwitch(!mySwitch)}
+      >
+        <Box
+          sx={{
+            width: 10,
+            height: 10,
+            backgroundColor: mySwitch ? "black" : "white",
+            borderRadius: 50,
+            position: "absolute",
+            left: mySwitch ? "30px" : "4px",
+            transition: "left 0.35s",
+          }}
+        ></Box>
+      </Paper>
+    );
+  };
+
   return (
     <Stack
       display="flex"
@@ -84,9 +67,9 @@ const ClickedSettings = () => {
               Start WhatsApp at login
             </Typography>
           </Box>
-          <AntSwitch />
-          <Typography color="white" sx={{ fontSize: "0.9rem" }}>
-            Off
+          <MySwitch />
+          <Typography color="white" sx={{ fontSize: "0.9rem", color: "white" }}>
+            {mySwitch ? "On" : "Off"}
           </Typography>
         </Stack>
       </Stack>
