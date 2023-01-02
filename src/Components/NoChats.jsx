@@ -20,10 +20,14 @@ const NoChats = () => {
         <Typography variant="h6" sx={{ color: "white" }}>
           WhatsApp for Windows
         </Typography>
-        <Typography sx={{ color: "darkgray", fontSize: "0.8rem" }}>
+        <Typography
+          sx={{ color: "darkgray", fontSize: { sm: "0.6rem", md: "0.8rem" } }}
+        >
           Send and receive messages without keeping your phone online.
         </Typography>
-        <Typography sx={{ color: "darkgray", fontSize: "0.8rem" }}>
+        <Typography
+          sx={{ color: "darkgray", fontSize: { sm: "0.6rem", md: "0.8rem" } }}
+        >
           Use WhatsApp on up to 4 linked devices and 1 phone at the same time.
         </Typography>
       </Stack>

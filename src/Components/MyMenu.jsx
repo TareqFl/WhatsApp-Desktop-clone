@@ -37,7 +37,7 @@ const MyMenu = ({ menu, page }) => {
           backgroundColor: "#202020",
           zIndex: 4,
           overflow: "hidden",
-          transition: "all 0.35s",
+          transition: "all 0.3s",
         }}
       >
         <Stack display="flex" direction="row" id="menu" sx={{ height: "100%" }}>

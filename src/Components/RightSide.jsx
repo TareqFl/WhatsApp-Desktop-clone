@@ -4,7 +4,7 @@ import NoChats from "./NoChats";
 
 const RightSide = () => {
   return (
-    <Box flex={8}>
+    <Box sx={{ flexGrow: 8, display: { xs: "none", sm: "block" } }}>
       <NoChats />
     </Box>
   );

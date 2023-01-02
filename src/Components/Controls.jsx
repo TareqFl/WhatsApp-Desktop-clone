@@ -101,6 +101,7 @@ const Controls = () => {
         pr: 0.5,
         height: "100%",
         position: "relative",
+        display: { xs: "none", sm: "flex" },
       }}
     >
       <MyMenu menu={showMenu} page={page} />
@@ -112,6 +113,7 @@ const Controls = () => {
         status={false}
         settings={false}
         avatar={false}
+        onClick={() => setShowMenu(false)}
         icon={
           <ChatOutlined
             fontSize="small"
@@ -132,6 +134,7 @@ const Controls = () => {
         settings={false}
         avatar={false}
         display="none"
+        onClick={() => setShowMenu(false)}
         icon={
           <PhoneOutlined
             fontSize="small"
@@ -152,6 +155,7 @@ const Controls = () => {
         status={true}
         settings={false}
         avatar={false}
+        onClick={() => setShowMenu(false)}
         icon={
           <TrackChangesOutlined
             fontSize="small"

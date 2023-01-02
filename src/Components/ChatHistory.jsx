@@ -14,9 +14,9 @@ const Chats = () => {
       elevation={1}
       sx={{
         backgroundColor: "#202020",
-        maxWidth: "465px",
-        minWidth: "350px",
-        height: "100vh",
+        maxWidth: { xs: "100%", sm: "465px" },
+        minWidth: { xs: "100%", sm: "350px" },
+        height: "100%",
       }}
     >
       <Stack
