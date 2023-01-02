@@ -1,8 +1,9 @@
 import { Stack } from "@mui/material";
 import React from "react";
-import Chats from "./ChatHistory";
-import Controls from "./Controls";
-import RightSide from "./RightSide";
+import Chats from "./ChatHistory/ChatHistory";
+import Controls from "./Controls/Controls";
+import RightSide from "./RightSide/RightSide";
+import Warning from "./Warning";
 
 const Body = () => {
   return (
@@ -19,6 +20,7 @@ const Body = () => {
       <Controls />
       <Chats />
       <RightSide />
+      <Warning />
     </Stack>
   );
 };

@@ -3,7 +3,6 @@ import { Avatar, Stack, Typography } from "@mui/material";
 import React from "react";
 import { Scrollbar } from "smooth-scrollbar-react";
 // import { Scrollbar as BaseScrollbar } from "smooth-scrollbar/scrollbar";
-import "./styles.css";
 
 const AllChats = () => {
   const imgSrc =
