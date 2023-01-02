@@ -12,17 +12,14 @@ const App = () => {
           position: "absolute",
           height: "100vh",
           width: "100vw",
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
+          top: { xs: 0, sm: "-500%" },
+          left: { xs: 0, sm: "-500%" },
           zIndex: 10,
-          opacity: { xs: 1, sm: 0 },
           backgroundColor: "#303030",
-          transition: "opacity 0.35s",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
+          transition: " 0.35s",
         }}
       >
         <Typography
