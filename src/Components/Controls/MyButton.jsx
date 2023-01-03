@@ -4,7 +4,7 @@ import React from "react";
 const MyButton = ({ icon, text, color }) => {
   return (
     <Paper
-      elevation={0.5}
+      elevation={1}
       sx={{
         width: "100%",
         backgroundColor: color,

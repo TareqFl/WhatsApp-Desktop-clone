@@ -7,8 +7,13 @@ import {
 import { Box, IconButton, Paper, Stack, Typography } from "@mui/material";
 import React from "react";
 import AllChats from "./AllChats";
+import { useSelector } from "react-redux";
+import Calls from "./Calls";
+import Status from "./Status";
 
 const Chats = () => {
+  const { Display } = useSelector((state) => state);
+
   return (
     <Paper
       elevation={1}
@@ -69,11 +74,14 @@ const Chats = () => {
           display="flex"
           direction="row"
           alignItems="center"
-          sx={{ pl: 3, pr: 3 }}
+          sx={{
+            pl: 3,
+            pr: 3,
+          }}
         >
           <Box sx={{ flexGrow: 1 }}>
             <Typography variant="h6" color="white" fontWeight="bold">
-              Chats
+              {Display}
             </Typography>
           </Box>
 
@@ -84,6 +92,7 @@ const Chats = () => {
               "&:hover": {
                 backgroundColor: "#303030",
               },
+              opacity: Display === "Chats" ? 1 : 0,
             }}
           >
             <NoteAltOutlined fontSize="small" sx={{ color: "white" }} />
@@ -96,6 +105,7 @@ const Chats = () => {
               "&:hover": {
                 backgroundColor: "#303030",
               },
+              opacity: Display === "Chats" ? 1 : 0,
             }}
           >
             <MoreHoriz fontSize="small" sx={{ color: "white" }} />
@@ -107,30 +117,40 @@ const Chats = () => {
           sx={{
             pl: 3,
             pr: 3,
+            pb: Display === "Chats" && 0.9,
+            display: Display === "Status" && "none",
+            overflow: "hidden",
             input: {
               width: "100%",
-              backgroundColor: "#202020",
+              backgroundColor: "#303030",
               border: "none",
               outline: "none",
-              display: "block",
-              borderRadius: "2px",
+              borderRadius: "4px",
               color: "white",
               p: 1,
+              borderBottom: "1px solid darkgray",
+              "::placeholder": {
+                color: "darkgray",
+              },
+              "&:focus": {
+                borderBottom: "1px solid #00A884",
+                backgroundColor: "#202020",
+              },
             },
           }}
         >
           <Paper
+            component={"div"}
             elevation={3}
             sx={{
               backgroundColor: "#202020",
               border: "1px solid #303030",
-              borderBottom: "2px solid #00A884",
               position: "relative",
             }}
           >
             <SearchOutlined
               sx={{
-                color: "#909090",
+                color: "darkgray",
                 fontSize: "1rem",
                 transform: "rotate(90deg)",
                 position: "absolute",
@@ -138,12 +158,16 @@ const Chats = () => {
                 top: 7,
               }}
             />
-            <input placeholder="Search or start a new chat" />
+            <input
+              placeholder={`Search or start a new ${Display.substring(0, 4)}`}
+            />
           </Paper>
         </Box>
         {/* End Of Search Bar */}
 
-        <AllChats />
+        {Display === "Chats" && <AllChats />}
+        {Display === "Calls" && <Calls />}
+        {Display === "Status" && <Status />}
       </Stack>
     </Paper>
   );

@@ -3,7 +3,7 @@ import React from "react";
 import Chats from "./ChatHistory/ChatHistory";
 import Controls from "./Controls/Controls";
 import RightSide from "./RightSide/RightSide";
-import Warning from "./Warning";
+import Warning from "./Warnings/Warning";
 
 const Body = () => {
   return (

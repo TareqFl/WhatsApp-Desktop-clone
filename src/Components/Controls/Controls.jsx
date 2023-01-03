@@ -7,7 +7,11 @@ import {
 } from "@mui/icons-material";
 import { Avatar, Box, IconButton, Stack } from "@mui/material";
 import MyMenu from "./MyMenu";
+import { useDispatch } from "react-redux";
+import { changeDisplay } from "../../Actions";
 const Controls = () => {
+  const dispatch = useDispatch();
+
   const [bgc, setBgc] = React.useState({
     chats: false,
     calls: false,
@@ -113,7 +117,10 @@ const Controls = () => {
         status={false}
         settings={false}
         avatar={false}
-        onClick={() => setShowMenu(false)}
+        onClick={() => {
+          setShowMenu(false);
+          dispatch(changeDisplay("Chats"));
+        }}
         icon={
           <ChatOutlined
             fontSize="small"
@@ -134,7 +141,10 @@ const Controls = () => {
         settings={false}
         avatar={false}
         display="none"
-        onClick={() => setShowMenu(false)}
+        onClick={() => {
+          setShowMenu(false);
+          dispatch(changeDisplay("Calls"));
+        }}
         icon={
           <PhoneOutlined
             fontSize="small"
@@ -155,7 +165,10 @@ const Controls = () => {
         status={true}
         settings={false}
         avatar={false}
-        onClick={() => setShowMenu(false)}
+        onClick={() => {
+          setShowMenu(false);
+          dispatch(changeDisplay("Status"));
+        }}
         icon={
           <TrackChangesOutlined
             fontSize="small"
